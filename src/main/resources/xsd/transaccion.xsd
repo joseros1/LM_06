@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.example.org/transaccion"
+           xmlns:cba="http://www.example.org/cuenta_bancaria"
+           targetNamespace="http://www.example.org/transaccion"
+           elementFormDefault="qualified">
+
+    <!-- Importa el esquema de cuentas bancarias -->
+    <xs:import namespace="http://www.example.org/cuenta_bancaria"
+               schemaLocation="cuenta_bancaria.xsd"/>
+
+    <!-- Elemento raíz -->
+    <xs:element name="transaccion" type="tns:transaccionType"/>
+
+    <!-- Definición del tipo Transacción -->
+    <xs:complexType name="transaccionType">
+        <xs:sequence>
+            <xs:element name="cuenta_origen_bancaria"   type="cba:cuenta_bancaria"/>
+            <xs:element name="cuenta_destino_bancaria"  type="cba:cuenta_bancaria"/>
+            <xs:element name="monto"                   type="xs:decimal"/>
+            <!-- otros elementos según necesidad -->
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

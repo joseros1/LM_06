@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2025.05.02 a las 12:32:43 PM CEST 
+
+  -->
+  <jaxb:bindings scd="x-schema::">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="org.example.citas"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings scd="citas">
+      <jaxb:class ref="org.example.citas.Citas"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="complejo">
+      <jaxb:class ref="org.example.citas.Complejo"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+  <jaxb:bindings scd="x-schema::tns" xmlns:tns="http://www.example.org/cuenta_bancaria">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="org.example.citas"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings scd="~tns:cuenta_bancaria">
+      <jaxb:class ref="org.example.citas.CuentaBancaria"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+  <jaxb:bindings scd="x-schema::tns" xmlns:tns="http://www.example.org/transaccion">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="org.example.citas"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings scd="~tns:transaccionType">
+      <jaxb:class ref="org.example.citas.TransaccionType"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>
+

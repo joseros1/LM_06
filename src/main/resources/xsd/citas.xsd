@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Raíz -->
+    <xs:element name="citas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cita" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <!-- Datos del paciente -->
+                            <xs:element name="paciente">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dni" type="xs:string"/>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="apellidos" type="xs:string"/>
+                                        <xs:element name="fechaNacimiento" type="xs:date"/>
+                                        <xs:element name="telefono" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Detalles de la cita -->
+                            <xs:element name="fecha" type="xs:date"/>
+                            <xs:element name="horario">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="mañana"/>
+                                        <xs:enumeration value="tarde"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element name="especialidad">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Oftalmología"/>
+                                        <xs:enumeration value="Fisioterapia y rehabilitación"/>
+                                        <xs:enumeration value="Cardiología"/>
+                                        <xs:enumeration value="Ginecología y obstetricia"/>
+                                        <xs:enumeration value="Salud mental"/>
+                                        <xs:enumeration value="ORL"/>
+                                        <xs:enumeration value="Dental"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <!-- Tipo de cita: libre o seguro privado -->
+                            <xs:element name="tipoCita">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element name="cargo" type="xs:decimal"/>
+                                        <xs:element name="codigoPoliza" type="xs:string"/>
+                                    </xs:choice>
+                                    <xs:attribute name="tipo" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="libre"/>
+                                                <xs:enumeration value="seguro"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Urgencia -->
+                            <xs:element name="urgente" type="xs:boolean"/>
+
+                            <!-- Opcionales -->
+                            <xs:element name="medicoAsignado" type="xs:string" minOccurs="0"/>
+                            <xs:element name="duracionEstimada" type="xs:positiveInteger" minOccurs="0"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

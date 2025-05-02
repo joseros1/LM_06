@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cba="http://www.example.org/cuenta_bancaria"
+           targetNamespace="http://www.example.org/cuenta_bancaria"
+           elementFormDefault="qualified">
+
+    <!-- Tipo complejo nombrado para cuenta bancaria -->
+    <xs:complexType name="cuenta_bancaria">
+        <xs:sequence>
+            <xs:element name="numero_cuenta" type="xs:string"/>
+            <xs:element name="codigo_iban"   type="xs:string"/>
+            <xs:element name="banco"         type="xs:string"/>
+            <xs:element name="pais"          type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Elemento que expone el tipo definido -->
+    <xs:element name="cuenta_bancaria" type="cba:cuenta_bancaria"/>
+
+</xs:schema>
